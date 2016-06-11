@@ -1,6 +1,14 @@
+body {
+	padding-top: 50px;
+}
+
+
+
 .navbar {
 	margin-bottom: 0;
 }
+
+
 
 .bike-section-image {
 	background: center center url('../img/top.jpg') no-repeat;
@@ -8,16 +16,15 @@
 	padding: 120px 0;
 }
 
-body {
-	padding-top: 50px;
+.footer{
+	background-color: #f7f7f7;
 }
+
 
 .margin-top-15 {
 	margin-top: 15px;
 }
 
-.white-strong {
-	color: #fff;
-	font-weight: 700;
-	font-size: 3.2rem;
+.margin-20 {
+	margin: 20px;
 }
