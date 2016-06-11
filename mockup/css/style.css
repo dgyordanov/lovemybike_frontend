@@ -1,9 +1,23 @@
 .navbar {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 .bike-section-image {
-    background: center center url('../img/carousel1.jpg') no-repeat;
-    background-size: cover;
-    padding: 80px 0;
+	background: center center url('../img/top.jpg') no-repeat;
+	background-size: cover;
+	padding: 120px 0;
+}
+
+body {
+	padding-top: 50px;
+}
+
+.margin-top-15 {
+	margin-top: 15px;
+}
+
+.white-strong {
+	color: #fff;
+	font-weight: 700;
+	font-size: 3.2rem;
 }
