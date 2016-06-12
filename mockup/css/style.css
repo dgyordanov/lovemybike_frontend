@@ -9,11 +9,21 @@ body {
 }
 
 
-
 .bike-section-image {
 	background: center center url('../img/top.jpg') no-repeat;
 	background-size: cover;
-	padding: 120px 0;
+	
+}
+
+.location-box {
+    background-color: rgba(255,255,255,0.8);
+    padding: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.location-form-button {
+	margin-top: 25px;
 }
 
 .footer{
