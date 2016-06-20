@@ -38,3 +38,25 @@ body {
 .margin-20 {
 	margin: 20px;
 }
+
+.carousel-inner{
+  width:100%;
+  max-width:640px;
+  max-height:300px;
+}
+
+.carousel{
+    padding: 0px;
+}
+
+.carousel-inner > .item > img {
+    margin: 0 auto;
+}
+
+.dl-horizontal dt {
+    width: 80px;
+}
+
+.dl-horizontal dd {
+    margin-left: 90px;
+}
