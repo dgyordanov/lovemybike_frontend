@@ -1,16 +1,19 @@
 var path = require('path')
 var webpack = require('webpack')
 
+const BUILD_DIR = path.resolve(__dirname, 'build/client/public')
+const APP_DIR = path.resolve(__dirname, 'src/client/app')
+
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: [
     'webpack-hot-middleware/client',
-    './index'
+    APP_DIR + '/index.js'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    path: BUILD_DIR,
+    publicPath: '/assets/'
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
@@ -20,9 +23,9 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: [ 'babel' ],
+        loaders: ['react-hot', 'babel'],
         exclude: /node_modules/,
-        include: __dirname
+        include: APP_DIR
       }
     ]
   }
