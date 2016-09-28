@@ -12,7 +12,7 @@ class Top extends React.Component {
                             <div className="row">
                                 <div className="col-sm-6 col-lg-offset-2">
                                     <div className="form-group">
-                                        <label for="location">Location</label>
+                                        <label htmlFor="location">Location</label>
                                         <input id="location" name="location" placeholder="Find a bike in your city" className="form-control" type="text" />
                                     </div>
                                 </div>
