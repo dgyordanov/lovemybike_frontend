@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import todos from './todos'
+import offers from './offers'
 import visibilityFilter from './visibilityFilter'
 
-const todoApp = combineReducers({
-  todos,
+const bikesApp = combineReducers({
+  offers,
   visibilityFilter
 })
 
-export default todoApp
+export default bikesApp
