@@ -1,5 +1,6 @@
 const offersList = [
   {
+  	"id": 1,
     "title": "Haibaike big curve",
     "imageUrl": "./img/offer_3.jpg",
     "price": 24.99,
@@ -8,7 +9,7 @@ const offersList = [
 ]
 
 
-const offers = (state = [], action) => {
+const offers = (state = offersList, action) => {
   return state;
 }
 

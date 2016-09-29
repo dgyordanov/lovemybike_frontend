@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import Top from './Top'
 import Filters from './Filters'
+import VisibleOfferList from '../containers/VisibleOfferList'
 
 const App = () => (
   <div>
@@ -12,7 +13,7 @@ const App = () => (
     		<Filters />
     	</div>
     	<div className="col-md-10">
-    		TODO
+    		<VisibleOfferList />
     	</div>
     </div>	
   </div>
