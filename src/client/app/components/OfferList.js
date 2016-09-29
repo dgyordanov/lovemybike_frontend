@@ -17,7 +17,7 @@ const OfferList = ({offers}) => {
         return <div className="row">{rowContent}</div>;
     });
 
-    return <div className="container">{rows}</div>;
+    return <div>{rows}</div>;
 }
 
 OfferList.propTypes = {
