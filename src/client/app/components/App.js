@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Top from './Top'
-import Filters from './Filters'
+import OffersFilter from '../containers/OffersFilter'
 import VisibleOfferList from '../containers/VisibleOfferList'
 
 const App = () => (
@@ -10,7 +10,7 @@ const App = () => (
     <Top />
     <div className="container margin-top-15">
     	<div className="col-md-2">
-    		<Filters />
+    		<OffersFilter />
     	</div>
     	<div className="col-md-10">
     		<VisibleOfferList />
