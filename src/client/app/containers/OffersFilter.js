@@ -3,7 +3,7 @@ import Filters from '../components/Filters'
 import { setVisibilityFilter } from '../actions/actions'
 
 const mapStateToProps = (state) => ({
-  filters: state.filters
+  filters: state.visibilityFilter
 })
 
 const mapDispatchToProps = (dispatch) => {

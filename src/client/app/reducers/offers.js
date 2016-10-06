@@ -13,7 +13,7 @@ const offersList = [
     "imageUrl": "./img/offer_2.jpg",
     "price": 24.99,
     "description": "Short description of this bike which should be at most this size 3-4 rows",
-    "gender": "f"
+    "gender": "w"
   },
   {
   	"id": 3,
@@ -21,7 +21,7 @@ const offersList = [
     "imageUrl": "./img/offer_3.jpg",
     "price": 24.99,
     "description": "Short description of this bike which should be at most this size 3-4 rows",
-    "gender": "f"
+    "gender": "w"
   },
   {
   	"id": 4,
@@ -53,7 +53,7 @@ const offersList = [
     "imageUrl": "./img/offer_4.jpg",
     "price": 24.99,
     "description": "Short description of this bike which should be at most this size 3-4 rows",
-    "gender": "f"
+    "gender": "w"
   }
 ]
 
