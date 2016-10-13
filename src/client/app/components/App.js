@@ -4,18 +4,10 @@ import Top from './Top'
 import OffersFilter from '../containers/OffersFilter'
 import VisibleOfferList from '../containers/VisibleOfferList'
 
-const App = () => (
+const App = ({ children }) => (
   <div>
     <Navbar />
-    <Top />
-    <div className="container margin-top-15">
-    	<div className="col-md-2">
-    		<OffersFilter />
-    	</div>
-    	<div className="col-md-10">
-    		<VisibleOfferList />
-    	</div>
-    </div>	
+    { children }
   </div>
 )
 
