@@ -4,3 +4,10 @@ export const setVisibilityFilter = (filter) => {
     filter
   }
 }
+
+export const applyFilters = (filters) => {
+	return {
+		type: 'APPLY_FILTERS',
+		filters
+	}
+}

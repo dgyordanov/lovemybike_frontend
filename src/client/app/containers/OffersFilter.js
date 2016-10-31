@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Filters from '../components/Filters'
-import { setVisibilityFilter } from '../actions/actions'
+import { setVisibilityFilter, applyFilters } from '../actions/actions'
 
 const mapStateToProps = (state) => ({
   filter: state.visibilityFilter
@@ -8,8 +8,11 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onFilterClick: (value) => {
+    onChangeFilterClick: (value) => {
       dispatch(setVisibilityFilter(value));
+    },
+    onFilterClick: (filters) => {
+      dispatch(applyFilters(filters));
     }
   }
 }
