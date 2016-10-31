@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react'
 
-const Filters = ({ onFilterClick }) => (
+const Filters = ({ filter, onFilterClick }) => (
     <div>
         <h2>Filters</h2>
+
+        <div><button type="button" className="btn btn-primary btn-space">Apply Filter</button></div>
 
         <div className="panel panel-default">
             <div className="panel-heading" data-toggle="collapse" data-target="#panel-body-1">
@@ -10,13 +12,13 @@ const Filters = ({ onFilterClick }) => (
             </div>
             <div className="panel-body collapse" id="panel-body-1">
                 <div className="checkbox">
-                    <label><input type="checkbox" value="w" onClick={() => onFilterClick("w")} />Women</label>
+                    <label><input type="checkbox" checked={filter.w} value="w" onClick={() => onFilterClick("w")} />Women</label>
                 </div>
                 <div className="checkbox">
-                    <label><input type="checkbox" value="m" onClick={() => onFilterClick("m")} />Men</label>
+                    <label><input type="checkbox" checked={filter.m} value="m" onClick={() => onFilterClick("m")} />Men</label>
                 </div>
                 <div className="checkbox">
-                    <label><input type="checkbox" value="c" onClick={() => onFilterClick("c")}/>Children</label>
+                    <label><input type="checkbox" checked={filter.c} value="c" onClick={() => onFilterClick("c")}/>Children</label>
                 </div>
             </div>
         </div>
@@ -24,7 +26,8 @@ const Filters = ({ onFilterClick }) => (
 )
 
 Filters.propTypes = {
-    onFilterClick: PropTypes.func.isRequired
+    onFilterClick: PropTypes.func.isRequired,
+    
 }
 
 export default Filters

@@ -60,3 +60,7 @@ body {
 .dl-horizontal dd {
     margin-left: 90px;
 }
+
+.btn-space {
+    margin: 5px;
+}
