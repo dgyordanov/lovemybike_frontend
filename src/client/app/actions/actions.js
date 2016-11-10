@@ -17,7 +17,7 @@ export const applyFilters = (filters) => {
 
 		dispatch({'type': 'OFFERS_LOADING_START'});
 		let filterParam = filterQuery ? '?gender=' + filterQuery : '';
-		axios.get('https://lovemybike.herokuapp.com/offers' + filterParam)
+		axios.get('offers' + filterParam)
 			.then((response) => {
 				dispatch({
 					'type': 'OFFERS_LOADED_SUCCESS',
