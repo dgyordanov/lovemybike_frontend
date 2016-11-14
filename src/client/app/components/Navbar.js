@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 
 class Navbar extends React.Component {
   render () {
@@ -25,6 +26,9 @@ class Navbar extends React.Component {
                               <li><a href="#">Common mistakes with second hand bikes</a></li>
                           </ul>
                       </li>
+                  </ul>
+                  <ul className="nav navbar-nav navbar-right">
+                    <li><Link to="/login">Login</Link></li>
                   </ul>
               </div>
           </div>

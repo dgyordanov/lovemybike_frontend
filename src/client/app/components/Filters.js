@@ -26,6 +26,7 @@ const Filters = ({ filter, onFilterClick, onChangeFilterClick }) => (
 )
 
 Filters.propTypes = {
+    onChangeFilterClick: PropTypes.func.isRequired,
     onFilterClick: PropTypes.func.isRequired,
     filter: PropTypes.shape({
         w: PropTypes.bool.isRequired,
