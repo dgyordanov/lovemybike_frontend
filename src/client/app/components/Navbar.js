@@ -28,7 +28,7 @@ class Navbar extends React.Component {
                       </li>
                   </ul>
                   <ul className="nav navbar-nav navbar-right">
-                    <li><Link to="/login">Login</Link></li>
+                    <li><Link to="/login" data-toggle="collapse" data-target=".navbar-collapse.in">Login</Link></li>
                   </ul>
               </div>
           </div>
