@@ -1,4 +1,5 @@
 import 'babel-polyfill'
+import axios from 'axios';
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
@@ -13,6 +14,9 @@ import App from './components/App'
 import OffersRoot from './components/OffersRoot'
 import OfferDetails from './components/OfferDetails'
 import LoginPage from './components/LoginPage';
+
+// Prevent the browser to open the basic auth popup
+axios.defaults.headers.common['X-Requested-By'] = 'lovemybike_frontend';
 
 let store = createStore(
 	bikesApp,
