@@ -13,7 +13,7 @@ import bikesApp from './reducers/bikesApp'
 import App from './components/App'
 import OffersRoot from './components/OffersRoot'
 import OfferDetails from './components/OfferDetails'
-import LoginPage from './components/LoginPage';
+import LoginContainer from './containers/LoginContainer';
 
 // Prevent the browser to open the basic auth popup
 axios.defaults.headers.common['X-Requested-By'] = 'lovemybike_frontend';
@@ -32,7 +32,7 @@ render(
       <Route path="/" component={App}>
         <IndexRoute component={OffersRoot}/>
         <Route path="/offer/:offerId" component={OfferDetails}/>
-        <Route path="login" component={LoginPage} />
+        <Route path="login" component={LoginContainer} />
       </Route>
     </Router>
   </Provider>,

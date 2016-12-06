@@ -1,8 +1,14 @@
 {
-  "presets": ["es2015", "react"],
+  "presets": [
+    "babel-preset-react",
+    "babel-preset-es2015",
+    "babel-preset-stage-1"
+  ],
   "env": {
     "development": {
-      "presets": ["react-hmre"]
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
     }
   }
 }
