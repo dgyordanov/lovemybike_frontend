@@ -9,10 +9,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => {
   return {
     onSubmit: (values) => {
-      console.log('submitted values: ');
-      console.log(values);
-      // SEND CREDENTIALS
-    	//dispatch(login());
+    	dispatch(login(values));
     }
   }
 }

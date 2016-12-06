@@ -12,12 +12,12 @@ const LoginPage = ({ handleSubmit }) => {
               <h1>Login</h1>
 
               <div className='form-group'>
-                <label className="control-label">"Username / Email"</label>
+                <label className="control-label">Username / Email</label>
                 <Field name="identifier" component="input" type="text" className="form-control" />
               </div>
 
               <div className='form-group'>
-                <label className="control-label">"Password"</label>
+                <label className="control-label">Password</label>
                 <Field name="password" component="input" type="password" className="form-control" />
               </div>
               <div className="form-group"><button className="btn btn-primary btn-lg" type="submit">Login</button></div>
