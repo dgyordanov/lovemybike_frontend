@@ -34,18 +34,16 @@ export const applyFilters = (filters) => {
 export const login = (credentials) => {
 	return function (dispatch) {
 		dispatch({'type': 'LOGIN_START'});
-		var config = {
-			headers: {"Authorization": "Basic " + btoa(credentials.identifier + ":" + credentials.password)}
+		const token = "Basic " + btoa(credentials.identifier + ":" + credentials.password);
+		const config = {
+			headers: {"Authorization": token}
 		};
-
-		console.log('credentials');
-		console.log(credentials);
-		console.log('config:');
-		console.log(config);
 		axios.get('http://localhost:9000/login', config)
 			.then((response) => {
 				dispatch({
-					'type': 'LOGIN_SUCCESS'
+					type: 'LOGIN_SUCCESS',
+					token,
+					identifier: credentials.identifier
 				})
 			})
 			.catch(err => {
