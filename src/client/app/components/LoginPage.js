@@ -1,6 +1,8 @@
 "use strict";
-import React, { PropTypes } from 'react'
+import React from 'react'
 import { Field, reduxForm } from 'redux-form'
+import { validEmail } from '../util/formValidators'
+import inputField from './form/inputField'
 
 // TODOs validate and submit
 const LoginPage = ({ handleSubmit }) => {
@@ -11,16 +13,14 @@ const LoginPage = ({ handleSubmit }) => {
             <form onSubmit={handleSubmit}>
               <h1>Login</h1>
 
-              <div className='form-group'>
-                <label className="control-label">Username / Email</label>
-                <Field name="identifier" component="input" type="text" className="form-control" />
-              </div>
+              <Field name="identifier" component={inputField}
+                    type="text" label="Email" />
 
-              <div className='form-group'>
-                <label className="control-label">Password</label>
-                <Field name="password" component="input" type="password" className="form-control" />
-              </div>
+              <Field name="password" component={inputField}
+                    type="password" label="Password" required="required" />
+
               <div className="form-group"><button className="btn btn-primary btn-lg" type="submit">Login</button></div>
+
             </form>
           </div>
         </div>
@@ -28,11 +28,23 @@ const LoginPage = ({ handleSubmit }) => {
     );
 }
 
-function validate(values) {
-  // TODO Validation
-  console.log("Validating values: " + values);
-  return {};
 
+function validate(formProps) {
+  const errors = {};
+
+  if (!formProps.identifier) {
+    errors.identifier = 'Please enter an email';
+  }
+
+  if (!validEmail(formProps.identifier)) {
+    errors.identifier = 'Invalid email';
+  }
+
+  if (!formProps.password) {
+    errors.password = 'Please enter a password';
+  }
+
+  return errors;
 }
 
 export default reduxForm({
