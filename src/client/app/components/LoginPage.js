@@ -5,7 +5,7 @@ import { validEmail } from '../util/formValidators'
 import inputField from './form/inputField'
 
 // TODOs validate and submit
-const LoginPage = ({ handleSubmit }) => {
+const LoginPage = ({ loginInProgress, handleSubmit }) => {
     return (
       <div className="container">
         <div className="row">
@@ -19,7 +19,7 @@ const LoginPage = ({ handleSubmit }) => {
               <Field name="password" component={inputField}
                     type="password" label="Password" required="required" />
 
-              <div className="form-group"><button className="btn btn-primary btn-lg" type="submit">Login</button></div>
+              <div className="form-group"><button className={`btn btn-primary btn-lg ${loginInProgress && 'disabled'}`} type="submit">Login</button></div>
 
             </form>
           </div>

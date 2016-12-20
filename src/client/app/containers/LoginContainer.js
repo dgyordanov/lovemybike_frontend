@@ -3,7 +3,7 @@ import LoginPage from '../components/LoginPage'
 import { login } from '../actions/actions'
 
 const mapStateToProps = (state) => ({
-  // TODO errors
+  loginInProgress: state.auth.loginInProgress
 })
 
 const mapDispatchToProps = (dispatch) => {
