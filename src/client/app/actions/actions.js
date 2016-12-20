@@ -42,6 +42,8 @@ export const login = (credentials) => {
 		};
 		axios.get('http://localhost:9000/login', config)
 			.then((response) => {
+				localStorage.setItem('authToken', token);
+				localStorage.setItem('identifier', credentials.identifier);
 				setAuthToken(token);
 				dispatch({
 					type: 'LOGIN_SUCCESS',

@@ -1,7 +1,15 @@
-const auth = (state = [], action) => {
+const initState = {
+// TODO read the token from the local storage
+    token: localStorage.getItem('authToken'),
+    identifier: localStorage.getItem('identifier'),
+    loginInProgress: false
+}
+
+
+const auth = (state = initState, action) => {
   switch (action.type) {
     case 'LOGIN_START':
-      return Object.assign([], state, {loginInProgress: true});
+      return Object.assign({}, state, {loginInProgress: true});
     case 'LOGIN_SUCCESS':
       // TODO: store the token
       return {
@@ -16,7 +24,7 @@ const auth = (state = [], action) => {
         loginInProgress: false
       };
   }
-  return Object.assign([], state);
+  return Object.assign({}, state);
 }
 
 export default auth

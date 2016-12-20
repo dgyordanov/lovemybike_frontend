@@ -14,6 +14,7 @@ import App from './components/App'
 import OffersRoot from './components/OffersRoot'
 import OfferDetails from './components/OfferDetails'
 import LoginContainer from './containers/LoginContainer';
+import { setAuthToken } from './util/auth'
 
 // Prevent the browser to open the basic auth popup
 axios.defaults.headers.common['X-Requested-By'] = 'lovemybike_frontend';
@@ -22,6 +23,8 @@ let store = createStore(
 	bikesApp,
 	applyMiddleware(thunk, promise, createLogger())
 );
+
+setAuthToken(localStorage.getItem('authToken'));
 
 // Create an enhanced history that syncs navigation events with the store
 const history = syncHistoryWithStore(browserHistory, store)
