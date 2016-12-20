@@ -1,4 +1,6 @@
-import axios from 'axios';
+import axios from 'axios'
+import { setAuthToken } from '../util/auth'
+import { browserHistory } from 'react-router'
 
 export const setVisibilityFilter = (filter) => {
   return {
@@ -17,7 +19,7 @@ export const applyFilters = (filters) => {
 
 		dispatch({'type': 'OFFERS_LOADING_START'});
 		let filterParam = filterQuery ? '?gender=' + filterQuery : '';
-		axios.get('offers' + filterParam)
+		axios.get('http://localhost:9000/offers' + filterParam)
 			.then((response) => {
 				dispatch({
 					'type': 'OFFERS_LOADED_SUCCESS',
@@ -40,11 +42,13 @@ export const login = (credentials) => {
 		};
 		axios.get('http://localhost:9000/login', config)
 			.then((response) => {
+				setAuthToken(token);
 				dispatch({
 					type: 'LOGIN_SUCCESS',
 					token,
 					identifier: credentials.identifier
-				})
+				});
+				browserHistory.push('/');
 			})
 			.catch(err => {
 				console.log('error: ' + err);
