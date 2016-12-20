@@ -5,13 +5,15 @@ import { validEmail } from '../util/formValidators'
 import inputField from './form/inputField'
 
 // TODOs validate and submit
-const LoginPage = ({ loginInProgress, handleSubmit }) => {
+const LoginPage = ({ loginInProgress, authError, handleSubmit }) => {
     return (
       <div className="container">
         <div className="row">
           <div className="col-md-4 col-md-offset-4">
             <form onSubmit={handleSubmit}>
               <h1>Login</h1>
+
+              {authError && <div className="alert alert-danger">{authError}</div>}
 
               <Field name="identifier" component={inputField}
                     type="text" label="Email" />
