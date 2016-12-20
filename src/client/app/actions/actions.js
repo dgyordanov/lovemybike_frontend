@@ -59,4 +59,8 @@ export const login = (credentials) => {
 	}
 }
 
-
+export const logout = () => {
+  return {
+    type: 'LOGOUT'
+  }
+}

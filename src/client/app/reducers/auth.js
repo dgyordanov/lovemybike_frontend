@@ -1,3 +1,5 @@
+import { setAuthToken } from '../util/auth'
+
 const initState = {
 // TODO read the token from the local storage
     token: localStorage.getItem('authToken'),
@@ -23,6 +25,11 @@ const auth = (state = initState, action) => {
         error: 'Invalid login',
         loginInProgress: false
       };
+    case 'LOGOUT':
+      localStorage.removeItem('authToken');
+      localStorage.removeItem('identifier');
+      setAuthToken();
+      return {};
   }
   return Object.assign({}, state);
 }
