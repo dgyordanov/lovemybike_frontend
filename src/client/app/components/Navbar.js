@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 
-class Navbar extends React.Component {
-  render () {
+const Navbar = ({ loginIdentifier }) => {
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top">
           <div className="container-fluid">
@@ -12,7 +11,7 @@ class Navbar extends React.Component {
                       <span className="icon-bar"></span>
                       <span className="icon-bar"></span>
                   </button>
-                  <a className="navbar-brand" href="#">Love My Bike</a>
+                  <Link to="/" className="navbar-brand" >Love my Bike</Link>
               </div>
               <div className="collapse navbar-collapse">
                   <ul className="nav navbar-nav">
@@ -27,14 +26,18 @@ class Navbar extends React.Component {
                           </ul>
                       </li>
                   </ul>
-                  <ul className="nav navbar-nav navbar-right">
-                    <li><Link to="/login" data-toggle="collapse" data-target=".navbar-collapse.in">Login</Link></li>
-                  </ul>
+
+                  {loginIdentifier && <ul className="nav navbar-nav navbar-right">
+                        <li className="navbar-text">{ loginIdentifier }</li>
+                        <li><Link to="/" data-toggle="collapse" data-target=".navbar-collapse.in">Logout</Link></li>
+                  </ul>}
+                  {!loginIdentifier && <ul className="nav navbar-nav navbar-right">
+                      <li><Link to="/login" data-toggle="collapse" data-target=".navbar-collapse.in">Login</Link></li>
+                  </ul>}
               </div>
           </div>
       </nav>
     )
-  }
 }
 
 export default Navbar
