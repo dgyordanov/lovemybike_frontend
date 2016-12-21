@@ -14,6 +14,7 @@ import App from './components/App'
 import OffersRoot from './components/OffersRoot'
 import OfferDetails from './components/OfferDetails'
 import LoginContainer from './containers/LoginContainer';
+import SignupContainer from './containers/SignupContainer';
 import { setAuthToken } from './util/auth'
 
 // Prevent the browser to open the basic auth popup
@@ -36,6 +37,7 @@ render(
         <IndexRoute component={OffersRoot}/>
         <Route path="/offer/:offerId" component={OfferDetails}/>
         <Route path="login" component={LoginContainer} />
+        <Route path="signup" component={SignupContainer} />
       </Route>
     </Router>
   </Provider>,

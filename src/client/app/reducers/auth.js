@@ -4,7 +4,8 @@ const initState = {
 // TODO read the token from the local storage
     token: localStorage.getItem('authToken'),
     identifier: localStorage.getItem('identifier'),
-    loginInProgress: false
+    loginInProgress: false,
+    signUpInProgress: false
 }
 
 
@@ -13,7 +14,6 @@ const auth = (state = initState, action) => {
     case 'LOGIN_START':
       return Object.assign({}, state, {loginInProgress: true});
     case 'LOGIN_SUCCESS':
-      // TODO: store the token
       return {
         token: action.token,
         identifier: action.identifier,
@@ -30,6 +30,13 @@ const auth = (state = initState, action) => {
       localStorage.removeItem('identifier');
       setAuthToken();
       return {};
+
+    case 'SIGNUP_START':
+      return Object.assign({}, state, {signUpInProgress: true, signUpError: null});
+    case 'SIGNUP_ERROR':
+      return Object.assign({}, state, {signUpInProgress: false, signUpError: 'Duplicated email'});
+    case 'SIGNUP_SUCCESS':
+      return Object.assign({}, state, {signUpInProgress: false, signUpError: null});
   }
   return Object.assign({}, state);
 }

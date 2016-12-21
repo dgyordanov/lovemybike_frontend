@@ -33,6 +33,7 @@ const Navbar = ({ loginIdentifier, logout }) => {
                   </ul>}
                   {!loginIdentifier && <ul className="nav navbar-nav navbar-right">
                       <li><Link to="/login" data-toggle="collapse" data-target=".navbar-collapse.in">Login</Link></li>
+                      <li><Link to="/signup" data-toggle="collapse" data-target=".navbar-collapse.in">Sign Up</Link></li>
                   </ul>}
               </div>
           </div>

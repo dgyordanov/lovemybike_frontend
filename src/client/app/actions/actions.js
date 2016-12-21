@@ -2,6 +2,9 @@ import axios from 'axios'
 import { setAuthToken } from '../util/auth'
 import { browserHistory } from 'react-router'
 
+// For dev purposes
+const baseUrl = 'http://localhost:9000/';
+
 export const setVisibilityFilter = (filter) => {
   return {
     type: 'SET_VISIBILITY_FILTER',
@@ -19,7 +22,7 @@ export const applyFilters = (filters) => {
 
 		dispatch({'type': 'OFFERS_LOADING_START'});
 		let filterParam = filterQuery ? '?gender=' + filterQuery : '';
-		axios.get('http://localhost:9000/offers' + filterParam)
+		axios.get(baseUrl + 'offers' + filterParam)
 			.then((response) => {
 				dispatch({
 					'type': 'OFFERS_LOADED_SUCCESS',
@@ -40,7 +43,7 @@ export const login = (credentials) => {
 		const config = {
 			headers: {"Authorization": token}
 		};
-		axios.get('http://localhost:9000/login', config)
+		axios.get(baseUrl + 'login', config)
 			.then((response) => {
 				localStorage.setItem('authToken', token);
 				localStorage.setItem('identifier', credentials.identifier);
@@ -55,6 +58,35 @@ export const login = (credentials) => {
 			.catch(err => {
 				console.log('error: ' + err);
 				dispatch({'type': 'LOGIN_ERROR', err})
+			})
+	}
+}
+
+export const signup = (data) => {
+	return function (dispatch) {
+		dispatch({'type': 'SIGNUP_START'});
+		axios.post(baseUrl + 'account', data)
+			.then((response) => {
+				const token = "Basic " + btoa(data.email + ":" + data.password);
+				localStorage.setItem('authToken', token);
+				localStorage.setItem('identifier', data.email);
+				setAuthToken(token);
+
+				dispatch({
+					type: 'SIGNUP_SUCCESS'
+				});
+
+				dispatch({
+					type: 'LOGIN_SUCCESS',
+					token,
+					identifier: data.email
+				});
+
+				browserHistory.push('/');
+			})
+			.catch(err => {
+				console.log('error: ' + err);
+				dispatch({'type': 'SIGNUP_ERROR', err})
 			})
 	}
 }
