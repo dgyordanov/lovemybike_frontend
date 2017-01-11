@@ -15,8 +15,7 @@ const Navbar = ({ loginIdentifier, logout }) => {
               </div>
               <div className="collapse navbar-collapse">
                   <ul className="nav navbar-nav">
-                      <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in">Buy</a></li>
-                      <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in">Sell</a></li>
+                      {loginIdentifier && <li><Link to="/postoffer" data-toggle="collapse" data-target=".navbar-collapse.in" >Post offer</Link></li>}
 
                       <li className="dropdown">
                           <a className="dropdown-toggle" data-toggle="dropdown" href="#">Advices<span className="caret"></span></a>
