@@ -15,7 +15,15 @@ const Navbar = ({ loginIdentifier, logout }) => {
               </div>
               <div className="collapse navbar-collapse">
                   <ul className="nav navbar-nav">
-                      {loginIdentifier && <li><Link to="/postoffer" data-toggle="collapse" data-target=".navbar-collapse.in" >Post offer</Link></li>}
+                      {loginIdentifier &&
+                        <li className="dropdown">
+                            <a className="dropdown-toggle" data-toggle="dropdown" href="#">My Offers<span className="caret"></span></a>
+                            <ul className="dropdown-menu">
+                                <li><a href="#">My Offers</a></li>
+                                <li><Link to="/postoffer" data-toggle="collapse" data-target=".navbar-collapse.in" >Post an Offer</Link></li>
+                            </ul>
+                        </li>
+                      }
 
                       <li className="dropdown">
                           <a className="dropdown-toggle" data-toggle="dropdown" href="#">Advices<span className="caret"></span></a>

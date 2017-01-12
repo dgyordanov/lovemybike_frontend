@@ -15,7 +15,7 @@ const SignupPage = ({ signUpInProgress, signUpError, handleSubmit }) => {
               {signUpError && <div className="alert alert-danger">{signUpError}</div>}
 
               <Field name="email" component={inputField}
-                    type="text" label="Email" />
+                    type="text" label="Email" required="required" />
 
               <Field name="password" component={inputField}
                     type="password" label="Password" required="required" />

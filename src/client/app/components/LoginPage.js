@@ -16,7 +16,7 @@ const LoginPage = ({ loginInProgress, authError, handleSubmit }) => {
               {authError && <div className="alert alert-danger">{authError}</div>}
 
               <Field name="identifier" component={inputField}
-                    type="text" label="Email" />
+                    type="text" label="Email" required="required" />
 
               <Field name="password" component={inputField}
                     type="password" label="Password" required="required" />
