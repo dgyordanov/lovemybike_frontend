@@ -23,11 +23,12 @@ const PostOffer = ({ handleSubmit }) => {
               <Field name="title" component={inputField}
                     type="text" label="Title" />
 
+              //decimal validation
               <Field name="price" component={inputField}
-                    type="password" label="Price"/>
+                    type="text" label="Price"/>
 
               <Field name="gender" component={selectField}
-                    type="password" label="Gender" options={genderOpts} />
+                    type="text" label="Gender" options={genderOpts} />
 
               <Field name="description" component={textareaField} label="Description" />
 

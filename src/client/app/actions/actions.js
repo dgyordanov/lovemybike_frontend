@@ -91,6 +91,24 @@ export const signup = (data) => {
 	}
 }
 
+export const postOffer = (data) => {
+	return function (dispatch) {
+		dispatch({'type': 'POST_OFFER_START'});
+		axios.post(baseUrl + 'offers', data)
+			.then((response) => {
+				dispatch({
+					type: 'POST_OFFER_SUCCESS'
+				});
+                // TODO: push to my offers or view this offer
+				// browserHistory.push('/');
+			})
+			.catch(err => {
+				console.log('error: ' + err);
+				dispatch({'type': 'POST_OFFER_ERROR', err})
+			});
+	}
+}
+
 export const logout = () => {
   return {
     type: 'LOGOUT'
