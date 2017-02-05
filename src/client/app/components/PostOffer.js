@@ -5,6 +5,7 @@ import { validEmail } from '../util/formValidators'
 import inputField from './form/inputField'
 import textareaField from './form/textareaField'
 import selectField from './form/selectField'
+import dropzoneInput from './form/dropzone'
 
 const PostOffer = ({ handleSubmit }) => {
     const genderOpts = [
@@ -31,6 +32,8 @@ const PostOffer = ({ handleSubmit }) => {
                     type="text" label="Gender" options={genderOpts} />
 
               <Field name="description" component={textareaField} label="Description" />
+
+              <Field name="images" component={dropzoneInput} label="Images" />
 
               <div className="form-group">
                 <button className="btn btn-primary btn-lg" type="submit">Create Offer</button>

@@ -94,7 +94,17 @@ export const signup = (data) => {
 export const postOffer = (data) => {
 	return function (dispatch) {
 		dispatch({'type': 'POST_OFFER_START'});
-		axios.post(baseUrl + 'offers', data)
+
+        let formData = new FormData();
+//        Object.keys(data).forEach(( key ) => {
+//            formData.append(key, data[ key ]);
+//        });
+        formData.append("name", data.title);
+        formData.append("file", data.images[0]);
+        const config = {
+            headers: { 'content-type': 'multipart/form-data' }
+        }
+		axios.post(baseUrl + 'offers', formData, config)
 			.then((response) => {
 				dispatch({
 					type: 'POST_OFFER_SUCCESS'
