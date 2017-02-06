@@ -96,14 +96,22 @@ export const postOffer = (data) => {
 		dispatch({'type': 'POST_OFFER_START'});
 
         let formData = new FormData();
-//        Object.keys(data).forEach(( key ) => {
-//            formData.append(key, data[ key ]);
-//        });
-        formData.append("name", data.title);
-        formData.append("file", data.images[0]);
+        Object.keys(data).forEach(( key ) => {
+            if (key === 'images') {
+                data[ key ].forEach((image, i) => {
+                    if (image) {
+                       formData.append("image" + i, image);
+                    }
+                });
+            } else {
+                formData.append(key, data[ key ]);
+            }
+        });
+
         const config = {
             headers: { 'content-type': 'multipart/form-data' }
         }
+
 		axios.post(baseUrl + 'offers', formData, config)
 			.then((response) => {
 				dispatch({
