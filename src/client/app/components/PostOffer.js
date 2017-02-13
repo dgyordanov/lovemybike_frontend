@@ -4,11 +4,11 @@ import { Field, reduxForm } from 'redux-form'
 import { validEmail } from '../util/formValidators'
 import inputField from './form/inputField'
 import textareaField from './form/textareaField'
-import selectField from './form/selectField'
 import dropzoneInput from './form/dropzone'
 
 const PostOffer = ({ handleSubmit }) => {
     const genderOpts = [
+        {label: "", value: ""},
         {label: "Male", value: "m"},
         {label: "Female", value: "f"},
         {label: "Child", value: "c"}
@@ -28,8 +28,10 @@ const PostOffer = ({ handleSubmit }) => {
               <Field name="price" component={inputField}
                     type="text" label="Price"/>
 
-              <Field name="gender" component={selectField}
-                    type="text" label="Gender" options={genderOpts} />
+              <label className="control-label">Gender</label>
+              <Field name="gender" className="form-control" component="select">
+                {genderOpts.map(option => <option value={option.value}>{option.label}</option>)}
+              </Field>
 
               <Field name="description" component={textareaField} label="Description" />
 
