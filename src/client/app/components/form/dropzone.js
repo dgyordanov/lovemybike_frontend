@@ -2,7 +2,6 @@ import React from 'react'
 import DropzoneComponent from 'react-dropzone-component';
 
 const dropzoneInput = (field) => {
-    // TODO: it works only with String values
     var files = [];
     const componentConfig = {
         postUrl: 'no-url',
@@ -18,34 +17,30 @@ const dropzoneInput = (field) => {
 
     const eventHandlers = {
         addedfile: (file) => {
-            // TODO: find the all files
-            console.log('Added file:' + file);
             files.push(file);
-            console.log(files);
-            field.input.onChange(files);
+            field.input.onChange(Object.assign([], files));
+            field.input.onBlur(Object.assign([], files));
 
         },
         removedfile: (file) => {
-            console.log('Removed file:' + file);
             let index = files.indexOf(file);
-            console.log('file index:' + index)
             if (index > -1) {
                 files.splice(index, 1);
             }
-            console.log(files);
-            field.input.onChange(files);
+            field.input.onChange(Object.assign([], files));
+            field.input.onBlur(Object.assign([], files));
         }
     };
 
   return (
-    <div>
-        <label htmlFor="images">Images</label>
+    <div className={`form-group ${field.required} ${field.meta.touched && field.meta.error ? 'has-error' : '' }`}>
+        <label className="control-label">Images</label>
         <div>
           <DropzoneComponent config={componentConfig}
                                  eventHandlers={eventHandlers}
                                  djsConfig={djsConfig} />
-
         </div>
+        {field.meta.touched && field.meta.error && <span className="help-block">{field.meta.error}</span>}
     </div>
   );
 }

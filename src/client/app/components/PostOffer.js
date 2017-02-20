@@ -22,20 +22,23 @@ const PostOffer = ({ handleSubmit }) => {
               <h1>Post an Offer</h1>
 
               <Field name="title" component={inputField}
-                    type="text" label="Title" />
+                    type="text" label="Title" required="required" />
 
-              //decimal validation
               <Field name="price" component={inputField}
-                    type="text" label="Price"/>
+                    type="text" label="Price" required="required" />
 
-              <label className="control-label">Gender</label>
-              <Field name="gender" className="form-control" component="select">
-                {genderOpts.map(option => <option value={option.value}>{option.label}</option>)}
-              </Field>
+                // TODO: error message
+              <div className="form-group required" >
+                  <label className="control-label">Gender</label>
+                  <Field name="gender" className="form-control" component="select">
+                    {genderOpts.map(option => <option value={option.value}>{option.label}</option>)}
+                  </Field>
+              </div>
 
-              <Field name="description" component={textareaField} label="Description" />
+              <Field name="description" component={textareaField}
+                    required="required" label="Description" />
 
-              <Field name="images" component={dropzoneInput} label="Images" />
+              <Field name="images" component={dropzoneInput} label="Images" required="required" />
 
               <div className="form-group">
                 <button className="btn btn-primary btn-lg" type="submit">Create Offer</button>
@@ -52,19 +55,30 @@ const PostOffer = ({ handleSubmit }) => {
 function validate(formProps) {
   const errors = {};
 
-//  if (!formProps.identifier) {
-//    errors.identifier = 'Please enter an email';
-//  }
-//
-//  if (!validEmail(formProps.identifier)) {
-//    errors.identifier = 'Invalid email';
-//  }
-//
-//  if (!formProps.password) {
-//    errors.password = 'Please enter a password';
-//  }
+  if (!formProps.title) {
+    errors.title = 'Please enter a title';
+  }
+
+  if (!formProps.price) {
+    errors.price = 'Please enter a price';
+  } else if (! (/^\d*(?:\.\d{0,2})?$/.test(formProps.price))) {
+    errors.price = 'Invalid price';
+  }
+
+  if (!formProps.description) {
+    errors.description = 'Please enter a description';
+  }
+
+  if (!formProps.gender) {
+      errors.gender = 'Please enter a gender';
+    }
+
+  if (!formProps.images || Object.keys(formProps.images).length == 0) {
+    errors.images = 'Please attach at least one image';
+  }
 
   return errors;
+
 }
 
 export default reduxForm({
