@@ -4,6 +4,7 @@ import { Field, reduxForm } from 'redux-form'
 import { validEmail } from '../util/formValidators'
 import inputField from './form/inputField'
 import textareaField from './form/textareaField'
+import selectField from './form/selectField'
 import dropzoneInput from './form/dropzone'
 
 const PostOffer = ({ handleSubmit }) => {
@@ -27,13 +28,8 @@ const PostOffer = ({ handleSubmit }) => {
               <Field name="price" component={inputField}
                     type="text" label="Price" required="required" />
 
-                // TODO: error message
-              <div className="form-group required" >
-                  <label className="control-label">Gender</label>
-                  <Field name="gender" className="form-control" component="select">
-                    {genderOpts.map(option => <option value={option.value}>{option.label}</option>)}
-                  </Field>
-              </div>
+              <Field name="gender" className="form-control" required="required"
+                    component={selectField} label="Gender" options={genderOpts} />
 
               <Field name="description" component={textareaField}
                     required="required" label="Description" />
