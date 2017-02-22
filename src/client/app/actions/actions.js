@@ -39,9 +39,7 @@ export const applyFilters = (filters) => {
 export const myOffers = () => {
 	return function (dispatch) {
 		dispatch({'type': 'MY_OFFERS_LOADING_START'});
-		// TODO: change the endpoint
-//		axios.get(baseUrl + 'offers/@my')
-		axios.get(baseUrl + 'offers')
+		axios.get(baseUrl + 'offers/@my')
 			.then((response) => {
 				dispatch({
 					'type': 'MY_OFFERS_LOADED_SUCCESS',
