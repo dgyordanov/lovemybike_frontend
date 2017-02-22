@@ -73,6 +73,18 @@ function validate(formProps) {
     errors.images = 'Please attach at least one image';
   }
 
+  if (formProps.images && formProps.images.length > 6) {
+    errors.images = 'Maximum 6 images are allowed';
+  }
+
+  formProps.images && formProps.images.some(function(image) {
+    if (image.size > (6 * 1024 * 1024)) {
+      errors.images = 'Maximum file image size is 6MB';
+      return true;
+    }
+    return false;
+  });
+
   return errors;
 
 }
