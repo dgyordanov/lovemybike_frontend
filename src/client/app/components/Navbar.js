@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 
-const Navbar = ({ loginIdentifier, logout }) => {
+const Navbar = ({ loginIdentifier, logout, myOffers }) => {
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top">
           <div className="container-fluid">
@@ -19,7 +19,7 @@ const Navbar = ({ loginIdentifier, logout }) => {
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown" href="#">My Offers<span className="caret"></span></a>
                             <ul className="dropdown-menu">
-                                <li><a href="#">My Offers</a></li>
+                                <li><a data-toggle="collapse" data-target=".navbar-collapse.in" onClick={myOffers}>My Offers</a></li>
                                 <li><Link to="/postoffer" data-toggle="collapse" data-target=".navbar-collapse.in" >Post an Offer</Link></li>
                             </ul>
                         </li>

@@ -12,6 +12,7 @@ import createLogger from 'redux-logger';
 import bikesApp from './reducers/bikesApp'
 import App from './components/App'
 import OffersRoot from './components/OffersRoot'
+import MyOffers from './components/MyOffers'
 import OfferDetails from './components/OfferDetails'
 import PostOfferContainer from './containers/PostOfferContainer'
 import LoginContainer from './containers/LoginContainer';
@@ -38,6 +39,7 @@ render(
         <IndexRoute component={OffersRoot}/>
         <Route path="/offer/:offerId" component={OfferDetails}/>
         <Route path="/postoffer" component={PostOfferContainer} />
+        <Route path="/myoffers" component={MyOffers} />
         <Route path="login" component={LoginContainer} />
         <Route path="signup" component={SignupContainer} />
       </Route>

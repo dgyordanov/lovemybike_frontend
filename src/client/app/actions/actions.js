@@ -36,6 +36,26 @@ export const applyFilters = (filters) => {
 	}
 }
 
+export const myOffers = () => {
+	return function (dispatch) {
+		dispatch({'type': 'MY_OFFERS_LOADING_START'});
+		// TODO: change the endpoint
+//		axios.get(baseUrl + 'offers/@my')
+		axios.get(baseUrl + 'offers')
+			.then((response) => {
+				dispatch({
+					'type': 'MY_OFFERS_LOADED_SUCCESS',
+					offers: response.data
+				});
+				browserHistory.push('/myoffers');
+			})
+			.catch(err => {
+				console.log('error: ' + err);
+				dispatch({'type': 'MY_OFFERS_LOADED_ERROR', err})
+			})
+	}
+}
+
 export const login = (credentials) => {
 	return function (dispatch) {
 		dispatch({'type': 'LOGIN_START'});
