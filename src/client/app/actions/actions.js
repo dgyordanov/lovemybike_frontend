@@ -20,6 +20,7 @@ export const locationChanged = (location) => {
 }
 
 export const locationSubmit = () => {
+  // Filter the offers by this location
   return {
     type: 'SUBMIT_LOCATION',
   }

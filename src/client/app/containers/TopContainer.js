@@ -3,8 +3,8 @@ import Top from '../components/Top'
 import { locationChanged, locationSubmit } from '../actions/actions'
 
 const mapStateToProps = (state) => ({
-  //location: state.visibilityFilter.location
-})
+  location: state.visibilityFilter.location
+});
 
 const mapDispatchToProps =  (dispatch) => ({
     locationChanged: (e) => {
