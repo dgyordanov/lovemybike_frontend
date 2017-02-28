@@ -31,6 +31,18 @@ const PostOffer = ({ handleSubmit }) => {
               <Field name="gender" className="form-control" required="required"
                     component={selectField} label="Gender" options={genderOpts} />
 
+              <Field name="street" component={inputField}
+                    type="text" label="Street" required="required" />
+
+              <Field name="number" component={inputField}
+                    type="text" label="Street number" required="required" />
+
+              <Field name="postcode" component={inputField}
+                    type="text" label="Postcode" required="required" />
+
+              <Field name="city" component={inputField}
+                    type="text" label="City" required="required" />
+
               <Field name="description" component={textareaField}
                     required="required" label="Description" />
 
@@ -63,6 +75,22 @@ function validate(formProps) {
 
   if (!formProps.description) {
     errors.description = 'Please enter a description';
+  }
+
+  if (!formProps.street) {
+    errors.street = 'Please enter a street';
+  }
+
+  if (!formProps.number) {
+    errors.number = 'Please enter a number';
+  }
+
+  if (!formProps.city) {
+    errors.city = 'Please enter a city';
+  }
+
+  if (!formProps.postcode) {
+    errors.postcode = 'Please enter a postcode';
   }
 
   if (!formProps.gender) {
