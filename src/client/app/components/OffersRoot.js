@@ -1,11 +1,11 @@
 import React from 'react'
-import Top from './Top'
+import TopContainter from '../containers/TopContainer'
 import OffersFilter from '../containers/OffersFilter'
 import VisibleOfferList from '../containers/VisibleOfferList'
 
 const OffersRoot = () => (
   <div>
-    <Top />
+    <TopContainter />
     <div className="container margin-top-15">
     	<div className="col-md-2">
     		<OffersFilter />
