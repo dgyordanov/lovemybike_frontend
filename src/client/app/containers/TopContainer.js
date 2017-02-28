@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import Top from '../components/Top'
+import { locationChanged, locationSubmit } from '../actions/actions'
 
 const mapStateToProps = (state) => ({
   //location: state.visibilityFilter.location
@@ -7,11 +8,15 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps =  (dispatch) => ({
     locationChanged: (e) => {
-        console.log(e);
+        if (e.key === 'Enter') {
+            dispatch(locationSubmit());
+        } else {
+            dispatch(locationChanged(e.target.value));
+        }
     },
     locationSubmit: (e) => {
         e.preventDefault();
-        console.log(e);
+        dispatch(locationSubmit());
     }
 })
 

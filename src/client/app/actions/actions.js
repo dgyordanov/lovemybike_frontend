@@ -12,6 +12,19 @@ export const setVisibilityFilter = (filter) => {
   }
 }
 
+export const locationChanged = (location) => {
+  return {
+    type: 'SET_LOCATION',
+    location
+  }
+}
+
+export const locationSubmit = () => {
+  return {
+    type: 'SUBMIT_LOCATION',
+  }
+}
+
 export const applyFilters = (filters) => {
 	return function (dispatch) {
 	    // convert filters object to gender query
