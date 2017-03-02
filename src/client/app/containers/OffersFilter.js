@@ -11,8 +11,8 @@ const mapDispatchToProps = (dispatch) => {
     onChangeFilterClick: (value) => {
       dispatch(setVisibilityFilter(value));
     },
-    onFilterClick: (filters) => {
-      dispatch(applyFilters(filters));
+    onFilterClick: () => {
+      dispatch(applyFilters());
     }
   }
 }

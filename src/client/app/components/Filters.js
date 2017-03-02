@@ -4,7 +4,7 @@ const Filters = ({ filter, onFilterClick, onChangeFilterClick }) => (
     <div>
         <h2>Filters</h2>
 
-        <div><button type="button" onClick={() => onFilterClick(filter.gender)} className="btn btn-primary btn-space">Apply Filter</button></div>
+        <div><button type="button" onClick={onFilterClick} className="btn btn-primary btn-space">Apply Filter</button></div>
 
         <div className="panel panel-default">
             <div className="panel-heading" data-toggle="collapse" data-target="#panel-body-1">

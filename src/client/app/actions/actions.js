@@ -19,24 +19,32 @@ export const locationChanged = (location) => {
   }
 }
 
-export const locationSubmit = () => {
+export const locationSubmit = (location) => {
   // Filter the offers by this location
-  return {
-    type: 'SUBMIT_LOCATION',
+  return function (dispatch, getState) {
+    dispatch({'type': 'SUBMIT_LOCATION'});
+    dispatch(applyFilters());
   }
 }
 
-export const applyFilters = (filters) => {
-	return function (dispatch) {
-	    // convert filters object to gender query
-	    let filterQuery = Object.keys(filters)
-	        .map((key, index) => filters[key] ? key : "")
+export const applyFilters = () => {
+	return function (dispatch, getState) {
+		dispatch({'type': 'OFFERS_LOADING_START'});
+
+	    let queryFilters = [];
+
+	    // convert gender object to gender query
+	    const gender = getState().visibilityFilter.gender;
+	    let selectedGenders = Object.keys(gender)
+	        .map((key, index) => gender[key] ? key : "")
 	        .reduce(
                 function(result, filterValue){ return result + filterValue }, "");
+		selectedGenders && queryFilters.push('gender=' + selectedGenders);
 
-		dispatch({'type': 'OFFERS_LOADING_START'});
-		let filterParam = filterQuery ? '?gender=' + filterQuery : '';
-		axios.get(baseUrl + 'offers' + filterParam)
+		const submitLocation = getState().visibilityFilter.submitLocation;
+		submitLocation && queryFilters.push('location=' + submitLocation);
+
+		axios.get(baseUrl + 'offers?' + queryFilters.join('&'))
 			.then((response) => {
 				dispatch({
 					'type': 'OFFERS_LOADED_SUCCESS',
