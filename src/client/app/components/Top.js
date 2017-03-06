@@ -1,26 +1,15 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes } from 'react';
+import LocationInput from './LocationInput';
+import LocationLabel from './LocationLabel';
 
-const Top = ({location, locationChanged, locationSubmit})  => (
+const Top = ({location, submittedLocation, locationChanged, locationSubmit, locationDelete})  => (
     <div className="container-fluid bike-section-image">
         <div className="row">
             <div className="col-lg-6 col-lg-offset-3">
                 <div className="location-box">
                     <h2 className="heading, text-center">The bike you will love.</h2>
-                    <form method="get" action="#">
-                        <div className="row">
-                            <div className="col-sm-6 col-lg-offset-2">
-                                <div className="form-group">
-                                    <label htmlFor="location">Location</label>
-                                    <input id="location" name="location" defaultValue={location} placeholder="Find a bike in your city" className="form-control" type="text" onKeyUp={locationChanged} />
-                                </div>
-                            </div>
-                            <div className="col-sm-2">
-                                <button type="submit" name="submit" className="btn btn-primary location-form-button" onClick={locationSubmit} >
-                                    <i className="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    {!submittedLocation && <LocationInput location={location} locationChanged={locationChanged} locationSubmit={locationSubmit} />}
+                    {submittedLocation && <LocationLabel submittedLocation={submittedLocation} locationDelete={locationDelete} />}
                 </div>
             </div>
         </div>

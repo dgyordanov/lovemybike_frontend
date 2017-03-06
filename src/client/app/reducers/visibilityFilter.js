@@ -15,7 +15,9 @@ const visibilityFilter = (state = initialFilters, action) => {
 		case 'SET_LOCATION':
 		    return Object.assign({}, state, {location: action.location});
 		case 'SUBMIT_LOCATION':
-		    return Object.assign({}, state, {submitLocation: state.location});
+		    return Object.assign({}, state, {submittedLocation: state.location});
+		case 'DELETE_SUBMITTED_LOCATION':
+		    return Object.assign({}, state, {submittedLocation: ""});
 		default:
 			return state;
 	}

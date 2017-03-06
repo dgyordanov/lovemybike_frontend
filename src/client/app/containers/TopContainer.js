@@ -1,9 +1,10 @@
 import { connect } from 'react-redux'
 import Top from '../components/Top'
-import { locationChanged, locationSubmit } from '../actions/actions'
+import { locationChanged, locationSubmit, locationDelete } from '../actions/actions'
 
 const mapStateToProps = (state) => ({
-  location: state.visibilityFilter.location
+  location: state.visibilityFilter.location,
+  submittedLocation: state.visibilityFilter.submittedLocation
 });
 
 const mapDispatchToProps =  (dispatch) => ({
@@ -17,6 +18,9 @@ const mapDispatchToProps =  (dispatch) => ({
     locationSubmit: (e) => {
         e.preventDefault();
         dispatch(locationSubmit());
+    },
+    locationDelete: () => {
+        dispatch(locationDelete());
     }
 })
 

@@ -27,6 +27,13 @@ export const locationSubmit = (location) => {
   }
 }
 
+export const locationDelete = () => {
+  return {
+        type: 'DELETE_SUBMITTED_LOCATION',
+    location
+  }
+}
+
 export const applyFilters = () => {
 	return function (dispatch, getState) {
 		dispatch({'type': 'OFFERS_LOADING_START'});
@@ -41,8 +48,8 @@ export const applyFilters = () => {
                 function(result, filterValue){ return result + filterValue }, "");
 		selectedGenders && queryFilters.push('gender=' + selectedGenders);
 
-		const submitLocation = getState().visibilityFilter.submitLocation;
-		submitLocation && queryFilters.push('location=' + submitLocation);
+		const submittedLocation = getState().visibilityFilter.submittedLocation;
+		submittedLocation && queryFilters.push('location=' + submittedLocation);
 
 		axios.get(baseUrl + 'offers?' + queryFilters.join('&'))
 			.then((response) => {
