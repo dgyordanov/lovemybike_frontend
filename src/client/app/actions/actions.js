@@ -51,6 +51,8 @@ export const applyFilters = () => {
 		const submittedLocation = getState().visibilityFilter.submittedLocation;
 		submittedLocation && queryFilters.push('location=' + submittedLocation);
 
+		queryFilters.push('pageNumber=1');
+
 		axios.get(baseUrl + 'offers?' + queryFilters.join('&'))
 			.then((response) => {
 				dispatch({

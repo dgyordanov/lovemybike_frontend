@@ -4,7 +4,7 @@ import Offer from './Offer'
 
 const OfferList = ({offers}) => {
     var groupSize = 3;
-    var rows = offers.map(offer =>
+    var rows = offers.content.map(offer =>
         <Offer key={offer.id} {...offer} />
     ).reduce(function(r, element, index) {
         // create element groups with size 3, result looks like:
@@ -18,16 +18,6 @@ const OfferList = ({offers}) => {
     });
 
     return <div>{rows}</div>;
-}
-
-OfferList.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    imageUrl: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired
-  }).isRequired).isRequired
 }
 
 export default OfferList

@@ -7,9 +7,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps =  ({})
 
-const VisibleOfferList = connect(
+const MyOfferList = connect(
   mapStateToProps,
   mapDispatchToProps
 )(OfferList)
 
-export default VisibleOfferList
+export default MyOfferList

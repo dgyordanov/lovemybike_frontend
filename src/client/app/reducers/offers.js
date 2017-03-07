@@ -1,11 +1,11 @@
-const offers = (state = [], action) => {
+const offers = (state = {content: []}, action) => {
   switch (action.type) {
     case 'OFFERS_LOADED_SUCCESS':
       return action.offers;
     case 'DELETE_SUBMITTED_LOCATION':
-      return [];
+      return {};
   }
-  return Object.assign([], state);
+  return Object.assign({}, state);
 }
 
 export default offers
