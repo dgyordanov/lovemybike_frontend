@@ -1,8 +1,9 @@
 "use strict";
-import React, { PropTypes } from 'react'
-import Offer from './Offer'
+import React, { PropTypes } from 'react';
+import Offer from './Offer';
+import PaginationRow from './reusable/PaginationRow';
 
-const OfferList = ({offers}) => {
+const OfferList = ({offers, pageChanged}) => {
     var groupSize = 3;
     var rows = offers.content.map(offer =>
         <Offer key={offer.id} {...offer} />
@@ -17,7 +18,17 @@ const OfferList = ({offers}) => {
         return <div className="row">{rowContent}</div>;
     });
 
-    return <div>{rows}</div>;
+    return (
+        <div>
+            {rows}
+            {offers.content.length > 0 &&
+                 <PaginationRow
+                    items={offers.totalPages}
+                    activePage={offers.pageIndex}
+                    pageChanged={pageChanged} />
+            }
+        </div>
+     );
 }
 
 export default OfferList
