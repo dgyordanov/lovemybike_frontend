@@ -1,6 +1,7 @@
 "use strict";
 import React, { PropTypes } from 'react'
 import Offer from './Offer'
+import { Pagination } from 'react-bootstrap';
 
 const OfferList = ({offers}) => {
     var groupSize = 3;
@@ -17,7 +18,45 @@ const OfferList = ({offers}) => {
         return <div className="row">{rowContent}</div>;
     });
 
-    return <div>{rows}</div>;
+    return (
+        <div>
+            {offers.content.length > 0 &&
+                <div className="row">
+                    <div className="col-md-6 col-md-offset-3">
+                         <Pagination
+                            prev
+                            next
+                            first
+                            last
+                            ellipsis
+                            boundaryLinks
+                            items={20}
+                            maxButtons={5}
+                            activePage={1}
+                            onSelect={(e) => console.log(e)} />
+                            </div>
+                </div>
+            }
+            {rows}
+            {offers.content.length > 0 &&
+                <div className="row">
+                    <div className="col-md-6 col-md-offset-3">
+                         <Pagination
+                            prev
+                            next
+                            first
+                            last
+                            ellipsis
+                            boundaryLinks
+                            items={20}
+                            maxButtons={5}
+                            activePage={1}
+                            onSelect={(e) => console.log(e)} />
+                            </div>
+                </div>
+            }
+        </div>
+     );
 }
 
 export default OfferList
