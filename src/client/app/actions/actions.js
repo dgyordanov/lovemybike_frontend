@@ -51,7 +51,7 @@ export const applyFilters = () => {
 		const submittedLocation = getState().visibilityFilter.submittedLocation;
 		submittedLocation && queryFilters.push('location=' + submittedLocation);
 
-		queryFilters.push('pageNumber=1');
+		queryFilters.push('pageNumber=' + getState().offers.pageIndex);
 
 		axios.get(baseUrl + 'offers?' + queryFilters.join('&'))
 			.then((response) => {
@@ -68,9 +68,9 @@ export const applyFilters = () => {
 }
 
 export const myOffers = () => {
-	return function (dispatch) {
+	return function (dispatch, getState) {
 		dispatch({'type': 'MY_OFFERS_LOADING_START'});
-		axios.get(baseUrl + 'offers/@my')
+		axios.get(baseUrl + 'offers/@my?pageNumber=' + getState().myoffers.pageIndex)
 			.then((response) => {
 				dispatch({
 					'type': 'MY_OFFERS_LOADED_SUCCESS',
@@ -138,6 +138,26 @@ export const signup = (data) => {
 				dispatch({'type': 'SIGNUP_ERROR', err})
 			})
 	}
+}
+
+export const pageChanged = (pageIndex) => {
+    return function(dispatch) {
+        dispatch({
+            'type': 'OFFER_PAGE_CHANGED',
+            pageIndex
+        });
+        dispatch(applyFilters());
+    }
+}
+
+export const myOffersPageChanged = (pageIndex) => {
+    return function(dispatch) {
+        dispatch({
+            'type': 'MY_OFFER_PAGE_CHANGED',
+            pageIndex
+        });
+        dispatch(myOffers());
+    }
 }
 
 export const postOffer = (data) => {

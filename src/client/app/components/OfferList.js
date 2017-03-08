@@ -1,9 +1,9 @@
 "use strict";
-import React, { PropTypes } from 'react'
-import Offer from './Offer'
-import { Pagination } from 'react-bootstrap';
+import React, { PropTypes } from 'react';
+import Offer from './Offer';
+import PaginationRow from './reusable/PaginationRow';
 
-const OfferList = ({offers}) => {
+const OfferList = ({offers, pageChanged}) => {
     var groupSize = 3;
     var rows = offers.content.map(offer =>
         <Offer key={offer.id} {...offer} />
@@ -20,40 +20,12 @@ const OfferList = ({offers}) => {
 
     return (
         <div>
-            {offers.content.length > 0 &&
-                <div className="row">
-                    <div className="col-md-6 col-md-offset-3">
-                         <Pagination
-                            prev
-                            next
-                            first
-                            last
-                            ellipsis
-                            boundaryLinks
-                            items={20}
-                            maxButtons={5}
-                            activePage={1}
-                            onSelect={(e) => console.log(e)} />
-                            </div>
-                </div>
-            }
             {rows}
             {offers.content.length > 0 &&
-                <div className="row">
-                    <div className="col-md-6 col-md-offset-3">
-                         <Pagination
-                            prev
-                            next
-                            first
-                            last
-                            ellipsis
-                            boundaryLinks
-                            items={20}
-                            maxButtons={5}
-                            activePage={1}
-                            onSelect={(e) => console.log(e)} />
-                            </div>
-                </div>
+                 <PaginationRow
+                    items={offers.totalPages}
+                    activePage={offers.pageIndex}
+                    pageChanged={pageChanged} />
             }
         </div>
      );
