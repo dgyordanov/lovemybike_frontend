@@ -3,7 +3,7 @@ import PostOffer from '../components/PostOffer'
 import { postOffer } from '../actions/actions'
 
 const mapStateToProps = (state) => ({
-  // TODO: disable the button while posting
+  postOfferInProgress: state.offers.postOfferInProgress
 })
 
 const mapDispatchToProps = (dispatch) => {

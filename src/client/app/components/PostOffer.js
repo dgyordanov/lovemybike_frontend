@@ -7,7 +7,7 @@ import textareaField from './form/textareaField'
 import selectField from './form/selectField'
 import dropzoneInput from './form/dropzone'
 
-const PostOffer = ({ handleSubmit }) => {
+const PostOffer = ({ postOfferInProgress, handleSubmit }) => {
     const genderOpts = [
         {label: "", value: ""},
         {label: "Male", value: "m"},
@@ -49,7 +49,7 @@ const PostOffer = ({ handleSubmit }) => {
               <Field name="images" component={dropzoneInput} label="Images" required="required" />
 
               <div className="form-group">
-                <button className="btn btn-primary btn-lg" type="submit">Create Offer</button>
+                <button className={`btn btn-primary btn-lg ${postOfferInProgress && 'disabled'}`} type="submit">Create Offer</button>
               </div>
 
             </form>
