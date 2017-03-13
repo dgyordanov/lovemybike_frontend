@@ -186,8 +186,7 @@ export const postOffer = (data) => {
 				dispatch({
 					type: 'POST_OFFER_SUCCESS'
 				});
-                // TODO: push to my offers or view this offer
-				// browserHistory.push('/');
+				browserHistory.push('/offer/' + response.data.id);
 			})
 			.catch(err => {
 				console.log('error: ' + err);
