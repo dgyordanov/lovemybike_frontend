@@ -19,7 +19,7 @@ const Navbar = ({ loginIdentifier, logout, myOffers }) => {
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown" href="#">My Offers<span className="caret"></span></a>
                             <ul className="dropdown-menu">
-                                <li><a data-toggle="collapse" data-target=".navbar-collapse.in" onClick={myOffers}>My Offers</a></li>
+                                <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in"  onClick={myOffers}>My Offers</a></li>
                                 <li><Link to="/postoffer" data-toggle="collapse" data-target=".navbar-collapse.in" >Post an Offer</Link></li>
                             </ul>
                         </li>
