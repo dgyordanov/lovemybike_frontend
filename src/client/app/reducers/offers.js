@@ -5,7 +5,7 @@ const offers = (state = {content: [], pageIndex: 1, postOfferInProgress: false},
     case 'OFFER_PAGE_CHANGED':
       return Object.assign({}, state, {pageIndex: action.pageIndex});
     case 'DELETE_SUBMITTED_LOCATION':
-      return {};
+      return {content: [], pageIndex: 1, postOfferInProgress: false};
     case 'POST_OFFER_START':
       return Object.assign({}, state, {postOfferInProgress: true});
     case 'POST_OFFER_SUCCESS':
