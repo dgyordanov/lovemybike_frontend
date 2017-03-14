@@ -6,7 +6,7 @@ const Top = ({location, locationChanged, locationSubmit})  => (
             <div className="col-sm-6 col-lg-offset-2">
                 <div className="form-group">
                     <label htmlFor="location">Location</label>
-                    <input id="location" name="location" defaultValue={location} placeholder="Find a bike in your city" className="form-control" type="text" onKeyUp={locationChanged} />
+                    <input id="location" name="location" defaultValue={location} placeholder="Find a bike by city/postcode" className="form-control" type="text" onKeyUp={locationChanged} />
                 </div>
             </div>
             <div className="col-sm-2">
