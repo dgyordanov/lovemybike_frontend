@@ -12,7 +12,7 @@ const dropzoneInput = (field) => {
     const djsConfig = {
         autoProcessQueue: false,
         addRemoveLinks: true,
-        acceptedFiles: "image/jpeg,image/png,image/gif",
+        acceptedFiles: "image/*",
         maxFiles: 6,
         maxFilesize: 6
     };
