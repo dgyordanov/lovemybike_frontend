@@ -200,3 +200,21 @@ export const logout = () => {
     type: 'LOGOUT'
   }
 }
+
+export const showOffer = (offerId) => {
+	return function (dispatch, getState) {
+		dispatch({'type': 'OFFER_LOADING_START'});
+		axios.get(baseUrl + 'offers/' + offerId)
+			.then((response) => {
+				dispatch({
+					'type': 'OFFER_LOADED_SUCCESS',
+					offer: response.data
+				});
+				browserHistory.push('/offer/' + offerId);
+			})
+			.catch(err => {
+				console.log('error: ' + err);
+				dispatch({'type': 'OFFER_LOADED_ERROR', err})
+			})
+	}
+}

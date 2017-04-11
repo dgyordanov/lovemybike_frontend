@@ -1,12 +1,12 @@
 "use strict";
 import React, { PropTypes } from 'react';
-import Offer from './Offer';
+import OfferContainer from '../containers/OfferContainer';
 import PaginationRow from './reusable/PaginationRow';
 
 const OfferList = ({offers, pageChanged}) => {
     var groupSize = 3;
     var rows = offers.content.map(offer =>
-        <Offer key={offer.id} {...offer} />
+        <OfferContainer key={offer.id} {...offer} />
     ).reduce(function(r, element, index) {
         // create element groups with size 3, result looks like:
         // [[elem1, elem2, elem3], [elem4, elem5, elem6], ...]

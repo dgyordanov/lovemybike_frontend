@@ -13,7 +13,7 @@ import bikesApp from './reducers/bikesApp'
 import App from './components/App'
 import OffersRoot from './components/OffersRoot'
 import MyOffers from './components/MyOffers'
-import OfferDetails from './components/OfferDetails'
+import OfferDetailsContainer from './containers/OfferDetailsContainer'
 import PostOfferContainer from './containers/PostOfferContainer'
 import LoginContainer from './containers/LoginContainer';
 import SignupContainer from './containers/SignupContainer';
@@ -37,7 +37,7 @@ render(
    <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={OffersRoot}/>
-        <Route path="/offer/:offerId" component={OfferDetails}/>
+        <Route path="/offer/:offerId" component={OfferDetailsContainer}/>
         <Route path="/postoffer" component={PostOfferContainer} />
         <Route path="/myoffers" component={MyOffers} />
         <Route path="login" component={LoginContainer} />
