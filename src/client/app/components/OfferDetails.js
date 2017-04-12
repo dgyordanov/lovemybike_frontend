@@ -21,7 +21,7 @@ const OfferDetails = ({offer}) => {
             </Carousel>
             </div>
             <div className="row margin-top-15">
-                <div className="col-md-3 col-md-offset-3">
+                <div className="col-md-4 col-md-offset-4">
                     <div className="panel panel-default">
                         <div className="panel-heading">
                             <h3 className="panel-title">Owner`s information</h3>
@@ -40,7 +40,7 @@ const OfferDetails = ({offer}) => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-md-6 col-md-offset-3">
+                    <div className="col-md-4 col-md-offset-4">
                         <div className="panel panel-default">
                             <div className="panel-heading">
                                 <h3 className="panel-title">Description</h3>
