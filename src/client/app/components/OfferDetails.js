@@ -24,12 +24,18 @@ const OfferDetails = ({offer}) => {
                 <div className="col-md-3 col-md-offset-3">
                     <div className="panel panel-default">
                         <div className="panel-heading">
-                            <h3 className="panel-title">Address</h3>
+                            <h3 className="panel-title">Owner`s information</h3>
                          </div>
                         <div className="panel-body">
-                            <address>
-                                {offer.city} {offer.postcode} {offer.street} {offer.number}
-                            </address>
+                            <div>
+                                <strong>{offer.ownerName}</strong>
+                            </div>
+                            <div>
+                                {offer.street} {offer.number}
+                            </div>
+                            <div>
+                                {offer.postcode}, {offer.city}
+                            </div>
                         </div>
                     </div>
                 </div>
