@@ -16,7 +16,7 @@ const OfferDetails = ({offer}) => {
                 <h1 className="text-center">{offer.title} <small>{offer.price} &euro;</small></h1>
             </div>
             <div className="row">
-            <Carousel className="col-md-6" className="col-md-offset-3">
+            <Carousel className="col-md-4 col-md-offset-4">
                 {carouselItems}
             </Carousel>
             </div>
