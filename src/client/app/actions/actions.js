@@ -23,7 +23,22 @@ export const locationSubmit = (location) => {
   // Filter the offers by this location
   return function (dispatch, getState) {
     dispatch({'type': 'SUBMIT_LOCATION'});
-    dispatch(applyFilters());
+    dispatch({
+        'type': 'OFFER_PAGE_CHANGED',
+        'pageIndex' : 1
+    });
+    dispatch(loadOffers());
+  }
+}
+
+export const applyFilters = () => {
+  // Filter the offers by this location
+  return function (dispatch, getState) {
+    dispatch({
+        'type': 'OFFER_PAGE_CHANGED',
+        'pageIndex' : 1
+    });
+    dispatch(loadOffers());
   }
 }
 
@@ -34,7 +49,7 @@ export const locationDelete = () => {
   }
 }
 
-export const applyFilters = () => {
+export const loadOffers = () => {
 	return function (dispatch, getState) {
 		dispatch({'type': 'OFFERS_LOADING_START'});
 
@@ -146,7 +161,7 @@ export const pageChanged = (pageIndex) => {
             'type': 'OFFER_PAGE_CHANGED',
             pageIndex
         });
-        dispatch(applyFilters());
+        dispatch(loadOffers());
     }
 }
 
