@@ -1,5 +1,6 @@
 import React from 'react'
 import { Carousel } from 'react-bootstrap';
+import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 
 const OfferDetails = ({offer}) => {
     var offerImages = [offer.image0_m, offer.image1_m, offer.image2_m, offer.image3_m, offer.image4_m, offer.image5_m]
@@ -16,12 +17,11 @@ const OfferDetails = ({offer}) => {
                 <h1 className="text-center">{offer.title} <small>{offer.price} &euro;</small></h1>
             </div>
             <div className="row">
-            <Carousel className="col-md-4 col-md-offset-4">
-                {carouselItems}
-            </Carousel>
-            </div>
-            <div className="row margin-top-15">
-                <div className="col-md-4 col-md-offset-4">
+                <Carousel className="col-md-4 col-md-offset-2">
+                    {carouselItems}
+                </Carousel>
+
+                <div className="col-md-4">
                     <div className="panel panel-default">
                         <div className="panel-heading">
                             <h3 className="panel-title">Owner`s information</h3>
@@ -38,18 +38,26 @@ const OfferDetails = ({offer}) => {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-4 col-md-offset-4">
-                        <div className="panel panel-default">
-                            <div className="panel-heading">
-                                <h3 className="panel-title">Description</h3>
-                            </div>
-                            <div className="panel-body">
-                                {offer.description}
-                            </div>
+                    <div className="panel panel-default">
+                        <div className="panel-heading">
+                            <h3 className="panel-title">Description</h3>
+                        </div>
+                        <div className="panel-body">
+                            {offer.description}
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className="row margin-top-15">
+                <div className="col-md-4 col-md-offset-2">
+                    <h2>Book now</h2>
+                    <DateRangePicker
+                      startDate={null} // momentPropTypes.momentObj or null,
+                      endDate={null} // momentPropTypes.momentObj or null,
+                      onDatesChange={({ startDate, endDate }) => console.log({ startDate, endDate })} // PropTypes.func.isRequired,
+                      focusedInput={null} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+                      onFocusChange={focusedInput => console.log(focusedInput)} // PropTypes.func.isRequired,
+                    />
                 </div>
             </div>
         </div>
