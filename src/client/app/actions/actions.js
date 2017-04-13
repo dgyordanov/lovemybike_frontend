@@ -201,7 +201,7 @@ export const postOffer = (data) => {
 				dispatch({
 					type: 'POST_OFFER_SUCCESS'
 				});
-				browserHistory.push('/offer/' + response.data.id);
+				dispatch(showOffer(response.data.id));
 			})
 			.catch(err => {
 				console.log('error: ' + err);
