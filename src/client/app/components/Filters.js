@@ -18,6 +18,9 @@ const Filters = ({ filter, onFilterClick, onChangeFilterClick }) => (
                     <label><input type="checkbox" checked={filter.gender.m} value="m" onClick={() => onChangeFilterClick("m")} />Men</label>
                 </div>
                 <div className="checkbox">
+                    <label><input type="checkbox" checked={filter.gender.u} value="u" onClick={() => onChangeFilterClick("u")} />Unisex</label>
+                </div>
+                <div className="checkbox">
                     <label><input type="checkbox" checked={filter.gender.c} value="c" onClick={() => onChangeFilterClick("c")}/>Children</label>
                 </div>
             </div>

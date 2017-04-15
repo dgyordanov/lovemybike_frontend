@@ -12,6 +12,7 @@ const PostOffer = ({ postOfferInProgress, handleSubmit }) => {
         {label: "", value: ""},
         {label: "Male", value: "m"},
         {label: "Female", value: "f"},
+        {label: "Unisex", value: "u"},
         {label: "Child", value: "c"}
     ];
 
