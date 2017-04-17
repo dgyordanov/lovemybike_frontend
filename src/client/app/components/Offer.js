@@ -8,7 +8,7 @@ const Offer = ({ id, title, image0_s, price, description, showOffer }) => (
             <img src={image0_s} alt="" />
             <div className="caption">
                 <h4 className="pull-right">{price} &euro;</h4>
-                <h4><a onClick={() => showOffer(id)}>{title}</a></h4>
+                <h4><a href="#" onClick={() => showOffer(id)}>{title}</a></h4>
                 <p>{description}</p>
             </div>
         </div>
