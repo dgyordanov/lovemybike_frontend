@@ -5,7 +5,7 @@ const BUILD_DIR = path.resolve(__dirname, 'build/client/public')
 const APP_DIR = path.resolve(__dirname, 'src/client/app')
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
   entry: [
     'webpack-hot-middleware/client',
     APP_DIR + '/index.js'
