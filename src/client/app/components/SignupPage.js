@@ -17,6 +17,9 @@ const SignupPage = ({ signUpInProgress, signUpError, handleSubmit }) => {
               <Field name="email" component={inputField}
                     type="text" label="Email" required="required" />
 
+              <Field name="name" component={inputField}
+                    type="text" label="Name" required="required" />
+
               <Field name="password" component={inputField}
                     type="password" label="Password" required="required" />
 
@@ -39,6 +42,10 @@ function validate(formProps) {
 
   if (!validEmail(formProps.email)) {
     errors.email = 'Invalid email';
+  }
+
+  if (!formProps.name) {
+      errors.name = 'Please enter a name';
   }
 
   if (!formProps.password) {
